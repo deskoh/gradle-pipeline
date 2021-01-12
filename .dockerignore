@@ -1,0 +1,5 @@
+target
+machinery/.gradle
+machinery/offline-repository
+machinery/build.gradle
+machinery/settings.gradle

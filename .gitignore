@@ -1,0 +1,9 @@
+package-lists
+plugin-lists
+repository-lists
+target/*
+machinery/build.gradle
+machinery/settings.gradle
+machinery/offline-repository
+machinery/.gradle
+0*/*.txt
