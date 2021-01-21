@@ -35,7 +35,7 @@ cat $STUBS_DIR/build.gradle.stub1 > $BUILD_SCRIPT
 
 if [ "$(ls $PLUGIN_LIST_DIR/*.txt 2> /dev/null)" ]
 then
-  cat $PLUGIN_LIST_DIR/*.txt | sort | uniq | sed 's/^/  /g' >> $BUILD_SCRIPT
+  cat $PLUGIN_LIST_DIR/*.txt | sed 's/\r//g' | sort | uniq | sed 's/^/  /g' >> $BUILD_SCRIPT
 else
   echo "No plugin lists found."
 fi
@@ -45,8 +45,8 @@ cat $STUBS_DIR/settings.gradle.stub1 > $SETTINGS_SCRIPT
 
 if [ "$(ls $REPO_LIST_DIR/*.txt 2> /dev/null)" ]
 then
-  cat $REPO_LIST_DIR/*.txt | sort | uniq | sed 's/^\(.\+\)$/  maven \{\n    url "\1"\n  \}/g' >> $BUILD_SCRIPT
-  cat $REPO_LIST_DIR/*.txt | sort | uniq | sed 's/^\(.\+\)$/    maven \{\n      url "\1"\n    \}/g' >> $SETTINGS_SCRIPT
+  cat $REPO_LIST_DIR/*.txt | sed 's/\r//g' | sort | uniq | sed 's/^\(.\+\)$/  maven \{\n    url "\1"\n  \}/g' >> $BUILD_SCRIPT
+  cat $REPO_LIST_DIR/*.txt | sed 's/\r//g' | sort | uniq | sed 's/^\(.\+\)$/    maven \{\n      url "\1"\n    \}/g' >> $SETTINGS_SCRIPT
 else
   echo "ERROR: You have not defined any repositories! The tool will not know where to download packages from unless you do."
   exit 1
@@ -65,7 +65,7 @@ cat $STUBS_DIR/build.gradle.stub4 >> $BUILD_SCRIPT
 
 if [ "$(ls $PACKAGE_LIST_DIR/*.txt 2> /dev/null)" ]
 then
-  cat $PACKAGE_LIST_DIR/*.txt | sort | uniq | sed 's/^\(.\+\)$/  api "\1"/g' >> $BUILD_SCRIPT
+  cat $PACKAGE_LIST_DIR/*.txt | sed 's/\r//g' | sort | uniq | sed 's/^\(.\+\)$/  api "\1"/g' >> $BUILD_SCRIPT
 else
   echo "No package lists found."
 fi
