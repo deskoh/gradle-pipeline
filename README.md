@@ -13,6 +13,8 @@
 
    > Mount this file inside directory `/opt/java-pipeline/pkglists`.
 
+   > If you do not wish to define a specific version, then you will have to define it using `latest.release` e.g `org.springframework.boot:spring-boot-starter:latest.release`
+
 1. List your plugin requirements (if any) in a .txt (e.g. `plugins.txt`) file, using the Gradle plugin syntax. Each plugin declaration should occupy one line. For example:
 
    ```txt
@@ -21,6 +23,8 @@
    ```
 
    > Mount this file inside directory `/opt/java-pipeline/pluginlists`.
+
+   > java, java-library and eclipse are added by default, hence, it is not required to declare these plugins
 
 1. If there are additional Maven repositories to be included in addition to the default list below, list them inside a .txt file (e.g. `repo.txt`). Each URL should occupy one line with **TRAILING NEW LINE**. For example:
 
@@ -54,14 +58,14 @@
       -v %cd%\packages.txt:/opt/java-pipeline/pkglists/packages.txt ^
       -v %cd%\plugins.txt:/opt/java-pipeline/pluginlists/plugins.txt ^
       -v %cd%\download:/opt/java-pipeline/target ^
-      deskoh/java-pipeline
+      deskoh/gradle-pipeline
 
    # For Linux / WSL
    docker run -it --name java-pipeline \
       -v ./packages.txt:/opt/java-pipeline/pkglists/packages.txt \
       -v ./plugins.txt:/opt/java-pipeline/pluginlists/plugins.txt \
       -v ./download:/opt/java-pipeline/target \
-      deskoh/java-pipeline bash
+      deskoh/gradle-pipeline bash
 
    # Subsequent download (update .txt files)
    docker start java-pipeline
