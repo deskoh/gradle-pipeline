@@ -7,3 +7,4 @@ machinery/settings.gradle
 machinery/offline-repository
 machinery/.gradle
 0*/*.txt
+.gradle

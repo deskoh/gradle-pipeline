@@ -104,7 +104,9 @@ do
 done
 
 echo "Packaging..."
-zip -r ../$TARGET_DIR/jars-$TIMESTAMP.zip $OFFLINE_REPOSITORY_NAME
+cd $OFFLINE_REPOSITORY_NAME
+zip -r ../../$TARGET_DIR/jars-$TIMESTAMP.zip *
+cd ..
 
 echo "Clearing download folder..."
 rm -rf $OFFLINE_REPOSITORY_NAME
