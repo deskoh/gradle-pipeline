@@ -26,4 +26,6 @@ VOLUME /home/.gradle
 
 USER gradle
 
+RUN chmod +x download.sh
+
 CMD ["./download.sh"]
