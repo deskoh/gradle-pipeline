@@ -19,7 +19,8 @@ RUN groupadd --system --gid 1000 gradle && \
     useradd --system -g gradle --uid 1000 -m gradle && \
     mkdir -p machinery/.gradle /home/.gradle && \
     chown -R gradle:gradle /opt/java-pipeline && \
-    chmod 777 /opt/java-pipeline/
+    chmod 777 /opt/java-pipeline/ && \
+    chmod +x machinery/gradlew
 
 VOLUME /opt/java-pipeline/machinery/.gradle
 VOLUME /home/.gradle
