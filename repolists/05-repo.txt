@@ -1,1 +1,1 @@
-https://maven.google.com/
+https://repo.spring.io/

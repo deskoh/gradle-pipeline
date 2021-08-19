@@ -1,1 +1,1 @@
-https://jcenter.bintray.com/
+https://maven.google.com/
