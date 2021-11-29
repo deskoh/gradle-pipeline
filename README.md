@@ -44,9 +44,7 @@
    https://repo1.maven.org/maven2/
    https://oss.sonatype.org/content/repositories/releases/
    https://plugins.gradle.org/m2/
-   https://jcenter.bintray.com/
    https://maven.google.com/
-   https://jitpack.io/
    https://repo.spring.io/milestone
    ```
 
@@ -85,3 +83,7 @@ IMPORTANT NOTES
    operation, and there is no way to disable this behaviour. This is done in
    order to ensure that the output .zip file does not contain any packages
    you do not need.
+
+## Build
+
+Run `docker build . -t deskoh/gradle-pipeline`
